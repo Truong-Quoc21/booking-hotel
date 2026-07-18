@@ -71,6 +71,7 @@ export async function getHotelById(req, res) {
 
 export async function insertHotel(req, res) {
     try {
+        console.log('BODY:', JSON.stringify(req.body));
         const { error } = insertHotelRequests.validate(req.body)
         if (error) {
             return res.status(400).json({
@@ -83,6 +84,7 @@ export async function insertHotel(req, res) {
 
         const hotels = await Promise.all(
             data.map(item => db.Hotel.create({
+                destination_id: item.destination_id,
                 name: item.name,
                 description: item.description,
                 address: item.address,
