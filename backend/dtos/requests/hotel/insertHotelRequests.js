@@ -1,6 +1,7 @@
 import Joi from 'joi'
 
 const hotelSchema = Joi.object({
+    destination_id: Joi.number().integer().required(),
     name: Joi.string().required(),
     description: Joi.string().optional(),
     address: Joi.string().required(),
@@ -16,6 +17,7 @@ const hotelSchema = Joi.object({
 
 class insertHotelRequests {
     constructor(data) {
+        this.destination_id = data.destination_id
         this.name = data.name
         this.description = data.description
         this.address = data.address
