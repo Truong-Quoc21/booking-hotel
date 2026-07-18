@@ -11,6 +11,7 @@ import validate from './middlewares/validate.js'
 const router = express.Router()
 
 export function AppRoute(app){
+    //http:localhost:3000/api
     router.get('/hotels', asyncHandler(HotelsController.getHotels))
     router.get('/hotels/:id', asyncHandler(HotelsController.getHotelById))
     router.post('/hotels', validate(insertHotelRequests), asyncHandler(HotelsController.insertHotel))
