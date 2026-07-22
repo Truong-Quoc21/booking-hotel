@@ -12,7 +12,7 @@ import updateDestinationRequests from './dtos/requests/destination/updateDestina
 
 import asyncHandler from './middlewares/asyncHandler.js'
 import validate from './middlewares/validate.js'
-import imageUpload from './middlewares/imageUpload.js'
+import { destinationImageUpload, hotelImageUpload } from './middlewares/imageUpload.js'
 
 const router = express.Router()
 
@@ -36,7 +36,8 @@ export function AppRoute(app){
     router.post('/destinations', validate(insertDestinationRequests), asyncHandler(DestinationsController.insertDestination))
     router.put('/destinations/:id', validate(updateDestinationRequests), asyncHandler(DestinationsController.updateDestination))
     router.delete('/destinations/:id', asyncHandler(DestinationsController.deleteDestination))
-    router.post('/destinations/:destinationId/images', imageUpload.array('images'), asyncHandler(DestinationImageController.uploadImages))
+    router.post('/destinations/:destinationId/images', destinationImageUpload.array('images'), asyncHandler(DestinationImageController.uploadImages))
+    //router.post('/hotels/:hotelId/images', hotelImageUpload.array('images'), asyncHandler(HotelImageController.uploadImages))
 
     app.use('/api/', router)
 }
