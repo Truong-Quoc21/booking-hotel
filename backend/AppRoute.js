@@ -3,6 +3,7 @@ import * as HotelsController from './controllers/HotelsController.js'
 import * as UsersController from './controllers/UsersController.js'
 import * as DestinationsController from './controllers/DestinationsController.js'
 import * as DestinationImageController from './controllers/DestinationImageController.js'
+import * as HotelImageController from './controllers/HotelImageController.js'
 import insertHotelRequests from './dtos/requests/hotel/insertHotelRequests.js'
 import updateHotelRequests from './dtos/requests/hotel/updateHotelRequests.js'
 import insertUserRequests from './dtos/requests/user/insertUserRequests.js'
@@ -37,7 +38,7 @@ export function AppRoute(app){
     router.put('/destinations/:id', validate(updateDestinationRequests), asyncHandler(DestinationsController.updateDestination))
     router.delete('/destinations/:id', asyncHandler(DestinationsController.deleteDestination))
     router.post('/destinations/:destinationId/images', destinationImageUpload.array('images'), asyncHandler(DestinationImageController.uploadImages))
-    //router.post('/hotels/:hotelId/images', hotelImageUpload.array('images'), asyncHandler(HotelImageController.uploadImages))
+    router.post('/hotels/:hotelId/images', hotelImageUpload.array('images'), asyncHandler(HotelImageController.uploadImages))
 
     app.use('/api/', router)
 }
