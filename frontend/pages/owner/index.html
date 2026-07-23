@@ -59,77 +59,11 @@
             Khách Sạn Nổi Bật
             <span class="badge">Nổi bật</span>
           </div>
-          <a href="#" class="see-all">Xem tất cả <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+          <a href="./list_hotel.html" class="see-all">Xem tất cả <i class="fa-solid fa-arrow-right fa-xs"></i></a>
         </div>
         <div class="carousel-wrap">
           <button class="car-btn prev" onclick="scrollCar('hotels',-1)"><i class="fa-solid fa-chevron-left"></i></button>
           <div class="carousel" id="hotels">
- 
-            <div class="hotel-card">
-              <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&q=70')">
-                <div class="stars"><i class="fa-solid fa-star fa-xs"></i> 4.8</div>
-              </div>
-              <div class="card-body">
-                <div class="hname">Resort Biển Azure</div>
-                <div class="hdesc">Resort Dion Azure với view biển tuyệt đẹp và dịch vụ đẳng cấp 5 sao.</div>
-                <div class="hprice"><span>Giá:</span> <strong>3,000đ</strong></div>
-              </div>
-            </div>
- 
-            <div class="hotel-card">
-              <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=70')">
-                <div class="stars"><i class="fa-solid fa-star fa-xs"></i> 4.7</div>
-              </div>
-              <div class="card-body">
-                <div class="hname">Khách Sạn Grand Central</div>
-                <div class="hdesc">Khách sạn sang trọng ngay trung tâm thành phố, tiện nghi đầy đủ.</div>
-                <div class="hprice"><span>Giá:</span> <strong>6,000đ</strong></div>
-              </div>
-            </div>
- 
-            <div class="hotel-card">
-              <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&q=70')">
-                <div class="stars"><i class="fa-solid fa-star fa-xs"></i> 4.9</div>
-              </div>
-              <div class="card-body">
-                <div class="hname">Emerald Bay Retreat</div>
-                <div class="hdesc">Jungle resort ẩn mình trong vườn dừa xanh mát ven biển nhiệt đới.</div>
-                <div class="hprice"><span>Giá:</span> <strong>8,500đ</strong></div>
-              </div>
-            </div>
- 
-            <div class="hotel-card">
-              <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&q=70')">
-                <div class="stars"><i class="fa-solid fa-star fa-xs"></i> 4.6</div>
-              </div>
-              <div class="card-body">
-                <div class="hname">Sand Dollar Suites</div>
-                <div class="hdesc">Không gian nghỉ dưỡng sang trọng sát biển với bể bơi vô cực.</div>
-                <div class="hprice"><span>Giá:</span> <strong>5,200đ</strong></div>
-              </div>
-            </div>
- 
-            <div class="hotel-card">
-              <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&q=70')">
-                <div class="stars"><i class="fa-solid fa-star fa-xs"></i> 4.5</div>
-              </div>
-              <div class="card-body">
-                <div class="hname">Ocean Pearl Resort</div>
-                <div class="hdesc">Resort hạng sang với view biển panoramic và bể bơi vô cực.</div>
-                <div class="hprice"><span>Giá:</span> <strong>9,000đ</strong></div>
-              </div>
-            </div>
- 
-            <div class="hotel-card">
-              <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1529290130-4ca3753253ae?w=400&q=70')">
-                <div class="stars"><i class="fa-solid fa-star fa-xs"></i> 4.7</div>
-              </div>
-              <div class="card-body">
-                <div class="hname">Palms Boutique Hotel</div>
-                <div class="hdesc">Khách sạn boutique phong cách nằm giữa vườn dừa xanh mát.</div>
-                <div class="hprice"><span>Giá:</span> <strong>4,100đ</strong></div>
-              </div>
-            </div>
  
           </div>
           <button class="car-btn next" onclick="scrollCar('hotels',1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -160,11 +94,12 @@
       </div>
     </section>
  
-  </div><!-- /main-content -->
+  </div>
 
     <div id="footer-placeholder"></div>
 
-    <script src="../../js/owner/index.js"> 
+    <script src="../../js/owner/index.js"></script>
+    <script> 
         async function loadComponent(id, file) {
             try {
             const res  = await fetch(file);
@@ -198,11 +133,8 @@
             });
 
             function goTo(index) {
-                // Xoá active dot cũ
                 dotsEl.querySelectorAll('.hero-dot').forEach(d => d.classList.remove('active'));
-                // Chuyển track sang trái
                 track.style.transform = `translateX(-${index * 100}%)`;
-                // Active dot mới
                 dotsEl.querySelectorAll('.hero-dot')[index].classList.add('active');
                 current = index;
             }
@@ -211,12 +143,10 @@
                 goTo((current + 1) % total);
             }
 
-            // Auto chạy mỗi 5 giây
             function startTimer() {
                 timer = setInterval(next, 5000);
             }
 
-            // Dừng khi click dot rồi chạy lại
             dotsEl.addEventListener('click', () => {
                 clearInterval(timer);
                 startTimer();
