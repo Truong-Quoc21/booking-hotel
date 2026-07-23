@@ -154,66 +154,6 @@
           <button class="car-btn prev" onclick="scrollCar('dests',-1)"><i class="fa-solid fa-chevron-left"></i></button>
           <div class="carousel" id="dests">
  
-            <div class="dest-card">
-              <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=400&q=70')">
-                <div class="dinfo">
-                  <div class="dname">Đà Nẵng</div>
-                  <div class="dmeta"><i class="fa-solid fa-location-dot fa-xs"></i> Di tích lịch sử</div>
-                  <div class="ddesc">Thành phố biển sôi động với bãi biển Mỹ Khê nổi tiếng.</div>
-                </div>
-              </div>
-            </div>
- 
-            <div class="dest-card">
-              <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1528127269322-539801943592?w=400&q=70')">
-                <div class="dinfo">
-                  <div class="dname">Sapa</div>
-                  <div class="dmeta"><i class="fa-solid fa-location-dot fa-xs"></i> Miền núi</div>
-                  <div class="ddesc">Ruộng bậc thang kỳ vĩ và văn hóa dân tộc đặc sắc.</div>
-                </div>
-              </div>
-            </div>
- 
-            <div class="dest-card">
-              <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=400&q=70')">
-                <div class="dinfo">
-                  <div class="dname">Hội An</div>
-                  <div class="dmeta"><i class="fa-solid fa-location-dot fa-xs"></i> Di sản UNESCO</div>
-                  <div class="ddesc">Phố cổ đèn lồng lung linh, kiến trúc cổ kính hàng trăm năm.</div>
-                </div>
-              </div>
-            </div>
- 
-            <div class="dest-card">
-              <div class="thumb" style="background-image:url('../../assets/images/tour1.jpeg')">
-                <div class="dinfo">
-                  <div class="dname">Ninh Bình</div>
-                  <div class="dmeta"><i class="fa-solid fa-location-dot fa-xs"></i> Thiên nhiên</div>
-                  <div class="ddesc">Cảnh quan núi đá vôi hùng vĩ, Tràng An di sản thế giới.</div>
-                </div>
-              </div>
-            </div>
- 
-            <div class="dest-card">
-              <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&q=70')">
-                <div class="dinfo">
-                  <div class="dname">Phú Quốc</div>
-                  <div class="dmeta"><i class="fa-solid fa-location-dot fa-xs"></i> Đảo ngọc</div>
-                  <div class="ddesc">Biển xanh, cát trắng, resort sang trọng và hải sản tươi ngon.</div>
-                </div>
-              </div>
-            </div>
- 
-            <div class="dest-card">
-              <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1562602833-0f4ab2fc46e3?w=400&q=70')">
-                <div class="dinfo">
-                  <div class="dname">Hạ Long</div>
-                  <div class="dmeta"><i class="fa-solid fa-location-dot fa-xs"></i> Di sản thiên nhiên</div>
-                  <div class="ddesc">Vịnh Hạ Long với hàng nghìn đảo đá vôi hùng vĩ kỳ bí.</div>
-                </div>
-              </div>
-            </div>
- 
           </div>
           <button class="car-btn next" onclick="scrollCar('dests',1)"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
@@ -224,7 +164,7 @@
 
     <div id="footer-placeholder"></div>
 
-    <script> 
+    <script src="../../js/owner/index.js"> 
         async function loadComponent(id, file) {
             try {
             const res  = await fetch(file);
