@@ -12,6 +12,11 @@ export async function uploadImages(req, res) {
             })
         }
 
+        const destination = await db.Destination.findByPk(destinationId)
+        if (!destination) {
+            return res.status(404).json({ message: 'Không tìm thấy địa điểm' })
+        }
+
         const images = await Promise.all(
             req.files.map(file =>
                 db.DestinationImage.create({
@@ -21,6 +26,10 @@ export async function uploadImages(req, res) {
             )
         )
 
+        if (!destination.thumbnail) {
+            await destination.update({ thumbnail: images[0].image_url })
+        }
+
         res.status(200).json({
             message: 'Tải ảnh lên thành công',
             data: images
@@ -28,15 +37,4 @@ export async function uploadImages(req, res) {
     } catch (error) {
         res.status(500).json({ message: 'Xảy ra lỗi khi tải ảnh', error: error.message })
     }
-}
-
-export async function viewImage(req, res) {
-    const { fileName } = req.params
-    const imagePath = path.join(__dirname, '../uploads/', fileName)
-    fs.access(imagePath, fs.constants.F_OK, (err) => {
-        if (err) {
-            return res.status(404).send('Image not found');
-        }
-        res.sendFile(imagePath)
-    })
 }
