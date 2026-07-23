@@ -8,8 +8,8 @@ const hotelSchema = Joi.object({
     city: Joi.string().required(),
     country: Joi.string().required(),
     star_rating: Joi.number().integer().min(1).max(5).required(),
-    phone: Joi.string().optional(),
-    email: Joi.string().email().optional(),
+    phone: Joi.string().allow('', null).optional(),
+    email: Joi.string().email().allow(null).optional(),
     thumbnail: Joi.string().allow("").optional(),
     check_in_time: Joi.string().optional(),
     check_out_time: Joi.string().optional()
