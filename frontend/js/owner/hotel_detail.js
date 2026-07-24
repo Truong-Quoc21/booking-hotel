@@ -216,7 +216,7 @@ async function loadHotelDetail() {
     }
 
     try {
-        const res = await fetch(`${API_BASE_URL}/api/hotels/${hotelId}`);
+        const res = await fetch(`${API_BASE_URL}/api/hotels/${hotelId}`,{cache: 'no-store'});
         if (!res.ok) throw new Error(`Lỗi HTTP: ${res.status}`);
 
         const result = await res.json();
