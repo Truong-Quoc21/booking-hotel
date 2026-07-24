@@ -51,7 +51,7 @@ async function loadPopularDestinations() {
         container.querySelectorAll('.dest-card').forEach(card => {
             card.addEventListener('click', () => {
                 const id = card.dataset.id;
-                window.location.href = `../destination/detail.html?id=${id}`;
+                window.location.href = `destination_detail.html?id=${id}`;
             });
         });
 
@@ -112,7 +112,7 @@ async function loadFeaturedHotels() {
         container.querySelectorAll('.hotel-card').forEach(card => {
             card.addEventListener('click', () => {
                 const id = card.dataset.id;
-                window.location.href = `../hotel/detail.html?id=${id}`;
+                window.location.href = `hotel_detail.html?id=${id}`;
             });
         });
 
