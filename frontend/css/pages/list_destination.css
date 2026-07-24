@@ -1,0 +1,177 @@
+/* ===== BỘ LỌC ===== */
+.filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-group label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: #e6e6e6;
+}
+
+.filter-group select {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #f2f2f2;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    min-width: 180px;
+    cursor: pointer;
+}
+
+.filter-group select:focus {
+    outline: 2px solid #6cc9c9;
+    outline-offset: 2px;
+}
+
+/* ===== TIÊU ĐỀ MỤC ===== */
+.sec-head { margin-bottom: 18px; }
+
+.sec-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: #6cc9c9;
+}
+
+/* ===== LƯỚI ĐỊA ĐIỂM ===== */
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+@media (max-width: 1100px) {
+    .destination-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 700px) {
+    .destination-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.destination-card {
+    display: block;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Ảnh nền — quan trọng: fix chiều cao, không để badge kéo giãn full-width */
+.destination-card .thumb {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    background-color: #1c2b3a; /* fallback khi ảnh lỗi/chưa có thumbnail */
+}
+
+/* Badge chỉ là 1 nhãn nhỏ góc trên-trái, KHÔNG full-width */
+.destination-card .stars {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    max-width: calc(100% - 16px);
+    background: rgba(0, 0, 0, 0.55);
+    color: #ffd166;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.destination-card .card-body {
+    padding: 12px 14px 16px;
+}
+
+.destination-card .dname {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #f2f2f2;
+    margin: 0 0 4px;
+}
+
+.destination-card .dlocation {
+    font-size: 12px;
+    color: #8fb4b4;
+    margin-bottom: 6px;
+}
+
+.destination-card .ddesc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #b3b3b3;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ===== PHÂN TRANG ===== */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 24px 0 40px;
+}
+
+.pagination button {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #e6e6e6;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+    background: rgba(108, 201, 201, 0.2);
+}
+
+.pagination button.active {
+    background: #6cc9c9;
+    border-color: #6cc9c9;
+    color: #0d1b2a;
+    font-weight: 600;
+}
+
+.pagination button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
