@@ -92,8 +92,8 @@ async function loadHotels() {
         grid.querySelectorAll('.hotel-card').forEach(card => {
             card.addEventListener('click', () => {
                 const id = card.dataset.id;
-                window.location.href = `./detail.html?id=${id}`;
-            });
+                window.location.href = `./hotel_detail.html?id=${id}`;
+             });
         });
 
         renderPagination(result.totalPages || 1);
@@ -113,8 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadHotels();
     });
 
-    // Bộ lọc Giá: cần bổ sung logic khi có dữ liệu giá phòng (rooms.price)
     document.getElementById('filterPrice').addEventListener('change', () => {
-        console.warn('Bộ lọc giá chưa được nối API — cần join bảng rooms để lấy giá thấp nhất mỗi khách sạn.');
+        console.warn('');
     });
 });
