@@ -104,6 +104,15 @@ function renderMap(hotel) {
 
 /* ================= LỰA CHỌN PHÒNG ================= */
 
+function buildRoomImageUrl(fileName) {
+    if (!fileName) {
+        return 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&q=75';
+    }
+    return fileName.startsWith('http')
+        ? fileName
+        : `${API_BASE_URL}/uploads/rooms/${fileName}`;
+}
+
 function renderRooms(rooms = []) {
     const grid = document.getElementById('roomGrid');
 
@@ -118,9 +127,14 @@ function renderRooms(rooms = []) {
         const bedInfo = room.bed_count ? `${room.bed_count} giường` : '';
         const capacityInfo = room.capacity ? `Tối đa ${room.capacity} khách` : '';
 
+        const firstImage = room.RoomImages && room.RoomImages.length > 0
+            ? room.RoomImages[0].image_url
+            : null;
+        const imageUrl = buildRoomImageUrl(firstImage);
+
         return `
             <div class="room-card" data-room-id="${room.id}">
-                <div class="room-card-img"></div>
+                <div class="room-card-img" style="background-image:url('${imageUrl}')"></div>
                 <div class="room-card-body">
                     <h4 class="room-name">${room.name}</h4>
                     <ul class="room-info">
