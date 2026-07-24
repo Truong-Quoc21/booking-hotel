@@ -4,16 +4,21 @@ import * as UsersController from './controllers/UsersController.js'
 import * as DestinationsController from './controllers/DestinationsController.js'
 import * as DestinationImageController from './controllers/DestinationImageController.js'
 import * as HotelImageController from './controllers/HotelImageController.js'
+import * as RoomsController from './controllers/RoomsController.js'
+import * as RoomImageController from './controllers/RoomImageController.js'
+import * as RoomTypeController from './controllers/RoomTypeController.js'
 import insertHotelRequests from './dtos/requests/hotel/insertHotelRequests.js'
 import updateHotelRequests from './dtos/requests/hotel/updateHotelRequests.js'
 import insertUserRequests from './dtos/requests/user/insertUserRequests.js'
 import updateUserRequests from './dtos/requests/user/updateUserRequests.js'
 import insertDestinationRequests from './dtos/requests/destination/insertDestinationRequests.js'
 import updateDestinationRequests from './dtos/requests/destination/updateDestinationRequests.js'
+import insertRoomRequests from './dtos/requests/room/insertRoomRequests.js'
+import updateRoomRequests from './dtos/requests/room/updateRoomRequests.js'
 
 import asyncHandler from './middlewares/asyncHandler.js'
 import validate from './middlewares/validate.js'
-import { destinationImageUpload, hotelImageUpload } from './middlewares/imageUpload.js'
+import { destinationImageUpload, hotelImageUpload, roomImageUpload } from './middlewares/imageUpload.js'
 
 const router = express.Router()
 
@@ -39,6 +44,15 @@ export function AppRoute(app){
     router.delete('/destinations/:id', asyncHandler(DestinationsController.deleteDestination))
     router.post('/destinations/:destinationId/images', destinationImageUpload.array('images'), asyncHandler(DestinationImageController.uploadImages))
     router.post('/hotels/:hotelId/images', hotelImageUpload.array('images'), asyncHandler(HotelImageController.uploadImages))
+
+    router.get('/rooms', asyncHandler(RoomsController.getRooms))
+    router.get('/rooms/:id', asyncHandler(RoomsController.getRoomById))
+    router.post('/rooms', validate(insertRoomRequests), asyncHandler(RoomsController.insertRoom))
+    router.put('/rooms/:id', validate(updateRoomRequests), asyncHandler(RoomsController.updateRoom))
+    router.delete('/rooms/:id', asyncHandler(RoomsController.deleteRoom))
+    router.post('/rooms/:roomId/images', roomImageUpload.array('images'), asyncHandler(RoomImageController.uploadImages))
+    router.get('/roomtype', asyncHandler(RoomTypeController.getRoomTypes))
+    router.post('/roomtype', asyncHandler(RoomTypeController.insertRoomType))
 
     app.use('/api/', router)
 }
