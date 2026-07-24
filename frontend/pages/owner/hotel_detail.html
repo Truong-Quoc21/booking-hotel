@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayNest - Chi Tiết Khách Sạn</title>
+    <link rel="stylesheet" href="../../css/components/header.css">
+    <link rel="stylesheet" href="../../css/components/footer.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/pages/hotel_detail.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="main-content">
+        <section class="section">
+            <div class="section-inner hotel-detail">
+
+                <h1 class="hotel-heading" id="hotelHeading"></h1>
+
+                <!-- ===== GALLERY ẢNH ===== -->
+                <div class="gallery">
+
+                    <div class="gallery-main">
+                        <button class="gallery-arrow gallery-arrow--prev" id="galleryPrev" aria-label="Ảnh trước">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+
+                        <div class="gallery-main-image" id="galleryMainImage"></div>
+
+                        <button class="gallery-arrow gallery-arrow--next" id="galleryNext" aria-label="Ảnh sau">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+
+                        <div class="gallery-dots" id="galleryDots"></div>
+                    </div>
+
+                </div>
+
+                <!-- ===== NỘI DUNG CHÍNH + SIDEBAR ĐẶT PHÒNG ===== -->
+                <div class="detail-layout">
+
+                    <!-- CỘT TRÁI -->
+                    <div class="detail-main">
+
+                        <div class="detail-row">
+                            <!-- MÔ TẢ -->
+                            <div class="panel panel--desc">
+                                <h2 class="panel-title">Mô tả:</h2>
+                                <h3 class="hotel-name" id="hotelName"></h3>
+                                <p class="hotel-desc" id="hotelDesc"></p>
+                            </div>
+
+                            <!-- TIỆN NGHI -->
+                            <div class="panel panel--amenities">
+                                <h2 class="panel-title">Tiện nghi:</h2>
+                                <ul class="amenities-list" id="amenitiesList">
+
+                                </ul>
+                            </div>
+
+                            <!-- BẢN ĐỒ -->
+                            <div class="panel panel--map">
+                                <h2 class="panel-title">Bản đồ</h2>
+                                <div class="map-box">
+                                    <iframe
+                                        id="hotelMapFrame"
+                                        src=""
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        allowfullscreen>
+                                    </iframe>
+                                    <a class="map-link" id="hotelMapLink" href="#" target="_blank">Xem trên bản đồ lớn</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- LỰA CHỌN PHÒNG -->
+                        <div class="panel panel--rooms">
+                            <h2 class="panel-title">Lựa chọn phòng:</h2>
+
+                            <div class="room-grid" id="roomGrid">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- CỘT PHẢI -->
+                    <aside class="detail-sidebar">
+
+                        <!-- BOX ĐẶT PHÒNG -->
+                        <div class="booking-box">
+                            <h2 class="booking-title">ĐẶT PHÒNG NGAY</h2>
+
+                            <div class="booking-field">
+                                <label>Lịch nhận/trả phòng:</label>
+                                <div class="booking-dates">
+                                    <input type="date" id="checkInDate">
+                                    <span>-</span>
+                                    <input type="date" id="checkOutDate">
+                                </div>
+                            </div>
+
+                            <div class="booking-field">
+                                <label>Số khách/phòng:</label>
+                                <select id="guestCount">
+                                </select>
+                            </div>
+
+                            <div class="booking-field">
+                                <label>Tùy chọn:</label>
+                                <select id="breakfastOption">
+
+                                </select>
+                                <select id="transferOption">
+
+                                </select>
+                            </div>
+
+                            <div class="booking-field booking-total">
+                                <label>Tổng giá:</label>
+                                <div class="total-price" id="totalPrice">—</div>
+                            </div>
+
+                            <button class="btn btn-primary btn-block" id="checkoutBtn">Thanh toán</button>
+                            <button class="btn btn-outline btn-block" id="cancelBtn">Hủy</button>
+                        </div>
+
+                        <!-- ĐÁNH GIÁ -->
+                        <div class="review-box">
+                            <h2 class="review-title">Đánh giá &amp; Xếp hạng</h2>
+                            <div class="review-average" id="reviewAverage"></div>
+
+                            <ul class="review-list" id="reviewList">
+            
+                            </ul>
+                        </div>
+
+                        <!-- THANH TOÁN -->
+                        <div class="social-payment">
+                            <div class="social-icons">
+                                <a href="#"><i class="fa-solid fa-globe"></i></a>
+                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                            </div>
+                            <div class="payment-icons">
+                                <i class="fa-brands fa-cc-visa"></i>
+                                <i class="fa-brands fa-cc-mastercard"></i>
+                                <i class="fa-brands fa-cc-discover"></i>
+                                <i class="fa-brands fa-cc-paypal"></i>
+                            </div>
+                        </div>
+
+                    </aside>
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadComponent(id, file) {
+            try {
+                const res  = await fetch(file);
+                const html = await res.text();
+                const parser = new DOMParser();
+                const doc    = parser.parseFromString(html, 'text/html');
+                document.getElementById(id).innerHTML = doc.body.innerHTML;
+            } catch (e) {
+                console.warn('Could not load component:', file, e);
+            }
+        }
+        loadComponent('header-placeholder', '../../components/header.html');
+        loadComponent('footer-placeholder', '../../components/footer.html');
+    </script>
+    <script src="../../js/owner/hotel_detail.js"></script>
+</body>
+</html>
