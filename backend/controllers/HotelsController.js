@@ -49,10 +49,38 @@ export async function getHotelById(req, res) {
         const { id } = req.params;
         const hotel = await db.Hotel.findByPk(id, {
             include: [
-                { model: db.HotelImage, as: 'HotelImages' },
-                { model: db.Room, as: 'Rooms' },
-                { model: db.Review, as: 'Reviews' },
-                { model: db.Amenity, as: 'Amenities', through: { attributes: [] } }
+                {
+                    model: db.HotelImage,
+                    as: 'HotelImages',
+                    separate: true,
+                    order: [['id', 'ASC']]
+                },
+                {
+                    model: db.Room,
+                    as: 'Rooms',
+                    separate: true,
+                    order: [['id', 'ASC']],
+                    include: [
+                        {
+                            model: db.RoomImage,
+                            as: 'RoomImages',
+                            separate: true,
+                            order: [['id', 'ASC']],
+                            limit: 1
+                        }
+                    ]
+                },
+                {
+                    model: db.Review,
+                    as: 'Reviews',
+                    separate: true,
+                    order: [['created_at', 'DESC']]
+                },
+                {
+                    model: db.Amenity,
+                    as: 'Amenities',
+                    through: { attributes: [] }
+                }
             ]
         });
 
