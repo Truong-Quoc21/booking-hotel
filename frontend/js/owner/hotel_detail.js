@@ -232,7 +232,6 @@ async function loadHotelDetail() {
 
         renderDescription(hotel);
         renderGallery();
-        renderAmenities(hotel.Amenities);
         renderMap(hotel);
         renderRooms(hotel.Rooms);
         renderReviews(hotel.Reviews);
